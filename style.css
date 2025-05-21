@@ -4,6 +4,7 @@ body  {
         linear-gradient(127deg, rgba(0, 255, 0, 0.8), rgba(0, 255, 0, 0) 70.71%),
         linear-gradient(336deg, rgba(0, 0, 255, 0.8), rgba(0, 0, 255, 0) 70.71%);
     display: flex;
+    flex-direction: column;
     background-attachment: fixed;
     margin: 0;
     justify-content: center;
@@ -14,6 +15,7 @@ h1 {
     font-weight: 200;
     top: 9.9rem;
     position: relative;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 #login-form {
@@ -21,11 +23,144 @@ h1 {
     position: relative;
 }
 
-#email {
+#text    {
     position: relative;
+    border-radius: 0.4rem;
+    border: none;
+    height: 1.5rem;
+    width: 9rem;
+    text-align: left;
+    
 }
 
 #password {
-    position:relative;
+    position: relative;
+    border-radius: 0.4rem;
+    border:none;
+    height: 1.5rem;
+    width: 9rem;
+    text-align: left;
+    
+}
 
+button {
+    position: relative;
+    width: 6rem;
+    height: 1.5rem;
+    border-radius: 0.5rem;
+    border: none;
+    background: white;
+    overflow: hidden;
+    z-index: 1;
+}
+
+button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 6.2rem;
+    height: 6.2rem;
+    transform: translate(-50%, -50%);
+    background: conic-gradient(
+        red,
+        lime,
+        blue,
+        red
+    );
+    border-radius: 50%;
+    animation: rotate 0.8s linear infinite;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    z-index: 0;
+}
+
+button:hover::before {
+    opacity: 1;
+}
+
+span {
+    z-index: 2;
+    position: relative;
+}
+
+button::after {
+    content: '';
+    position: absolute;
+    top: 8%;
+    left: 0.2rem;
+    width: 5.65rem;
+    height: 84%;
+    background: white;
+    border-radius: 0.5rem;
+    z-index: 1;
+}
+
+
+@keyframes rotate {
+    0%   { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+.hidden {
+    display: none;
+}
+
+
+
+.card {
+    background-color: white;
+    position: relative;
+    border-radius: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    z-index: 1;
+    overflow: hidden;
+    border: none;
+
+}
+
+.card.hidden::before, .card.hidden::after {
+    display: none;
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    display: block;
+    top: 50%;
+    left: 50%;
+    width: 26.2rem;
+    height: 26.2rem;
+    transform: translate(-50%, -50%);
+    background: conic-gradient(
+        red,
+        lime,
+        blue,
+        red
+    );
+    border-radius: 50%;
+    animation: rotate 0.8s linear infinite;
+    opacity: 1;
+    z-index: 0;
+    
+}
+
+.card::after {
+    content: '';
+    z-index: 1;
+    background-color: white;
+    position: absolute;
+    border-radius: 0.5rem;
+    top: 0.2rem;
+    left: 0.23rem;
+    width: 16.2rem;
+    height: 18.2rem;
+    bottom: 0;
+}
+
+.card-inner {
+    position: relative;
+    z-index: 2;
+    padding: 1.5rem;
 }

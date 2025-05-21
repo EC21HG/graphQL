@@ -4,17 +4,17 @@
         <meta charset="UTF-8"/>
         <title>GraphQL</title>
         <link rel="stylesheet" href="style.css"/>
+        <link rel="icon" href="asset/9462735.png"/>
     </head>
     <body>
         <h1>Log In</h1>
         <form id="login-form">
-            <input type="email" id="email" placeholder="Email" required/>
-            <!-- <input type="username" id="username" placeholder="Username" required/> -->
+            <input type="text" id="text" placeholder="Username or Email" required/>
             <input type="password" id="password" placeholder="Password" required/>
-            <button type="submit">Get in !</button>
+            <button type="submit"><span>Get in !</span></button>
         </form>
         
-        <pre id="result"></pre>
+        <div id="result" class="card hidden"></div>
 
         <script type="module" src="index.js"></script>
     </body>
