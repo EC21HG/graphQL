@@ -130,19 +130,21 @@ button::after {
     display: block;
     top: 50%;
     left: 50%;
-    width: 26.2rem;
-    height: 26.2rem;
+    width: 28.2rem;
+    height: 28.2rem;
     transform: translate(-50%, -50%);
     background: conic-gradient(
-        red,
-        lime,
-        blue,
-        red
+    #FF8778 ,#FFB266 ,#66FFCC ,#66CCFF ,#B299FF ,#FF99CC ,#FFFF99 ,#66FFFF,#FF8778 
+
     );
     border-radius: 50%;
-    animation: rotate 0.8s linear infinite;
+    animation: rotate 1.9s linear infinite;
     opacity: 1;
     z-index: 0;
+    
+}
+
+li {
     
 }
 
@@ -153,9 +155,9 @@ button::after {
     position: absolute;
     border-radius: 0.5rem;
     top: 0.2rem;
-    left: 0.23rem;
-    width: 16.2rem;
-    height: 18.2rem;
+    left: 0.25rem;
+    width: 17rem;
+    height: 13.3rem;
     bottom: 0;
 }
 
@@ -163,4 +165,16 @@ button::after {
     position: relative;
     z-index: 2;
     padding: 1.5rem;
+}
+
+p  {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h3 {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+h2 {
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;    
 }
