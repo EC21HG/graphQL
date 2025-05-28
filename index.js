@@ -139,7 +139,54 @@ const xpData = xpTransactions.map(tx => ({
     </div>
   `  
   result.innerHTML = html
+  
+  Chart.defaults.color='black'
+  
   const ctx = document.getElementById('xpChart').getContext('2d');
+
+let cumulativeXP = 0;
+const xpCumulativeData = xpData.map(item => {
+  cumulativeXP += item.xp;
+  return {
+    date: item.date,
+    totalXP: cumulativeXP
+  };
+});
+
+const ctx2 = document.getElementById('xpBarChart').getContext('2d');
+
+new Chart(ctx2, {
+  type: 'line',
+  data: {
+    labels: xpCumulativeData.map(item => item.date),
+    datasets: [{
+      label: 'Cumulative XP over time',
+      data: xpCumulativeData.map(item => item.totalXP),
+      fill: true,
+      borderColor: 'rgb(27, 81, 81)',
+      backgroundColor: 'rgba(75, 192, 192, 0.2)',
+      tension: 0.2
+    }]
+  },
+  options: {
+    scales: {
+      x: {
+        title: {
+          display: true,
+          text: 'Date'
+        }
+      },
+      y: {
+        title: {
+          display: true,
+          text: 'Cumulative XP'
+        },
+        beginAtZero: true
+      }
+    }
+  }
+});
+
 
 new Chart(ctx, {
   type: 'line',
