@@ -9,6 +9,7 @@ body  {
     margin: 0;
     justify-content: center;
     align-items: center;
+    overflow-x: hidden;
 }
 
 h1 {
@@ -109,15 +110,11 @@ button::after {
 
 
 .card {
-    background-color: white;
-    position: relative;
-    border-radius: 0.5rem;
-    display: flex;
-    flex-direction: column;
-    z-index: 1;
-    overflow: hidden;
-    border: none;
-
+  position: relative;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  width: 100%;
+  max-width: 800px;
 }
 
 .card.hidden::before, .card.hidden::after {
@@ -130,8 +127,8 @@ button::after {
     display: block;
     top: 50%;
     left: 50%;
-    width: 28.2rem;
-    height: 28.2rem;
+    width: 64.2rem;
+    height: 64.2rem;
     transform: translate(-50%, -50%);
     background: conic-gradient(
     #FF8778 ,#FFB266 ,#66FFCC ,#66CCFF ,#B299FF ,#FF99CC ,#FFFF99 ,#66FFFF,#FF8778 
@@ -144,10 +141,6 @@ button::after {
     
 }
 
-li {
-    
-}
-
 .card::after {
     content: '';
     z-index: 1;
@@ -156,15 +149,18 @@ li {
     border-radius: 0.5rem;
     top: 0.2rem;
     left: 0.25rem;
-    width: 17rem;
-    height: 13.3rem;
+    width: 49.5rem;
+    height: 36.3rem;
     bottom: 0;
 }
 
 .card-inner {
-    position: relative;
-    z-index: 2;
-    padding: 1.5rem;
+  position: relative;
+  z-index: 2;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 }
 
 p  {
@@ -177,4 +173,24 @@ h3 {
 
 h2 {
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;    
+}
+
+.group-scroll {
+  display: flex;
+  overflow-x: auto;
+  gap: 1rem;
+  padding: 1rem 0;
+  margin-top: 1rem;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+}
+
+.group-card {
+  min-width: 200px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  flex-shrink: 0;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }

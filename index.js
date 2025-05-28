@@ -50,13 +50,7 @@ console.log("Auth:",token)
                 createdAt
                 }
             }
-                audit {
-    private {
-      code
-    }
-    endAt
-  }
-  
+
   group {
     path
     status
@@ -107,7 +101,7 @@ console.log("Auth:",token)
   const user = graphqlData.data.user[0]
   const transactions = user.transactions
   const level = graphqlData.data.event_user[0]?.level
-  result.textContent = JSON.stringify(graphqlData, null, 2);
+  // result.textContent = JSON.stringify(graphqlData, null, 2);
   form.classList.add('hidden')
   const card = document.getElementById('result')
   card.classList.remove('hidden')
@@ -119,22 +113,31 @@ const xpData = xpTransactions.map(tx => ({
 }));
 
 
+  const groupCards = graphqlData.data.group.map(group =>
+   `
+   <div class="group-card">
+   <p> <strong> Path: </strong> ${group.path}</p>
+   <p> <strong> Status: </strong> ${group.status}</p>
+   </div>
+   `).join('');
+
   const html = `
   <div class="card-inner">
   <h2>Hi ${user.attrs.firstName}</h2>
   <p><strong> User </strong> : ${user.login}</p>
   <p> <strong> Actual Ratio: </strong>${(user.totalUp / user.totalDown).toFixed(2)} Xp</p>
-  <p> <strong> Your actual lvl is : </strong> ${level}Congrats !</p>
+  <p> <strong> Your actual lvl is : </strong> ${level} Congrats !</p>
   <ul> ${transactions.map(tx => `
     <li>
     <strong> ${tx.type}</strong> : ${tx.amount} (today ${new Date(tx.createdAt).toLocaleDateString()})
     </li>
     `).join('')}
     </ul>
-  </div>
-
-  
-  `
+    <div class="group-scroll">
+      ${groupCards}
+    </div>
+    </div>
+  `  
   result.innerHTML = html
   const ctx = document.getElementById('xpChart').getContext('2d');
 
